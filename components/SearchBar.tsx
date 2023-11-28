@@ -44,7 +44,7 @@ const SearchBar = () => {
 return (
     <form className='flex flex-wrap mt-[40px] gap-4' onSubmit={handleSubmit}>
         <input value={SearchPrompt} onChange={(e) => setSearchPrompt(e.target.value)} type="text" placeholder='Enter the product link' className='text-[14px] font-light text-Ilightblack h-[40px] sm:w-[380px] w-[260px] pl-[10px] pr-[10px] border-2 border-gray-200 rounded-lg focus:border-Ired focus:outline-none' />
-        <button type='submit' disabled={SearchPrompt === ''} className='h-[40px] w-[85px] text-[12px] text-Iwhite font-medium bg-Ired rounded-lg'>{IsLoading ? 'Searching...' : 'Search'}</button>
+        <button type='submit' disabled={SearchPrompt === ''} className='h-[40px] w-[85px] text-[12px] text-Iwhite font-medium bg-Ired rounded-lg'>{IsLoading ? 'Searching..' : 'Search'}</button>
     </form>
   )
 }

@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
-import {extractPrice} from '../utils';
+import {extractPrice, extractCurreny, extractDiscription} from '../utils';
 
 
 export async function scrapeAmazonProduct(url: string) {
@@ -36,7 +36,52 @@ export async function scrapeAmazonProduct(url: string) {
             $('.a-button-selected .a-color-base'),
         );
 
-        console.log({title, currentPrice});
+        const originalPrice = extractPrice(
+            $('#priceblock_ourprice'),
+            $('.a-price.a-text-price span.a-offscreen'),
+            $('#listPrice'),
+            $('#priceblock_dealprice'),
+            $('.a-size-base.a-color-price')
+        );
+
+        // const outOfStock = $('#availability span').text().trim().toLowerCase() === 'Currently Unavailable';
+        const outOfStock = $('#availability span').text().trim();
+
+        const images = $('#imgBLKFront').attr('data-a-dynamic-image') ||
+                      $('#landingImage').attr('data-a-dynamic-image') ||
+                      '{}'
+        const imageURL = Object.keys(JSON.parse(images));
+
+        const currency = extractCurreny(
+            $('.a-price-symbol')
+        );
+
+        const discoutPercentage = $('.savingsPercentage').text().replace(/[-%]/g, "");
+
+        const discription = extractDiscription(
+            $('#productDescription_feature_div')
+            // $('#descriptionInlineExpansionPrimaryContent span')
+        );
+
+
+        const data = {
+            url,
+            image: imageURL[0],
+            title,
+            currency: currency || '₹',
+            currentPrice: Number(currentPrice),
+            originalPrice: Number(originalPrice),
+            priceHistory: [],
+            discoutPercentage: Number(discoutPercentage),
+            category: 'category',
+            reviewsCount: 50,
+            stars: 4.5,
+            inOutOfStock: outOfStock,
+        };
+     
+        console.log(data);
+
+        // console.log({title, currentPrice, originalPrice, outOfStock, imageURL, currency, discoutPercentage, discription});
         // console.log(response.data);
     } catch (error: any) {
         throw new Error(`Failed to Scrape Data: ${error.message}`);
