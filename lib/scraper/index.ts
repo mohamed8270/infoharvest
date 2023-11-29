@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
-import {extractPrice, extractCurreny, extractDiscription} from '../utils';
+import {extractPrice, extractCurrency, extractDescription} from '../utils';
 
 
 export async function scrapeAmazonProduct(url: string) {
@@ -52,34 +52,36 @@ export async function scrapeAmazonProduct(url: string) {
                       '{}'
         const imageURL = Object.keys(JSON.parse(images));
 
-        const currency = extractCurreny(
+        const currency = extractCurrency(
             $('.a-price-symbol')
         );
 
         const discoutPercentage = $('.savingsPercentage').text().replace(/[-%]/g, "");
 
-        const discription = extractDiscription(
-            $('#productDescription_feature_div')
-            // $('#descriptionInlineExpansionPrimaryContent span')
-        );
+        const description = extractDescription($);
 
 
         const data = {
             url,
             image: imageURL[0],
             title,
+            description: description,
             currency: currency || '₹',
-            currentPrice: Number(currentPrice),
-            originalPrice: Number(originalPrice),
+            currentPrice: Number(currentPrice) || Number(originalPrice),
+            originalPrice: Number(originalPrice) || Number(currentPrice),
             priceHistory: [],
             discoutPercentage: Number(discoutPercentage),
             category: 'category',
             reviewsCount: 50,
             stars: 4.5,
-            inOutOfStock: outOfStock,
+            isOutOfStock: outOfStock,
+            lowestPrice: Number(currentPrice) || Number(originalPrice),
+            highestPrice: Number(originalPrice) || Number(currentPrice),
+            averagePrice: Number(currentPrice) || Number(originalPrice),
         };
      
-        console.log(data);
+        return data;
+        // console.log(data);
 
         // console.log({title, currentPrice, originalPrice, outOfStock, imageURL, currency, discoutPercentage, discription});
         // console.log(response.data);
