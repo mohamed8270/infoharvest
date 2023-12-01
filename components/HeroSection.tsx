@@ -1,8 +1,13 @@
 import React from 'react'
 import SearchBar from '../components/SearchBar'
 import HeroCarousel from '../components/HeroCarousel'
+import {getAllProducts} from '@/lib/actions';
+import {ProductCard} from '../components/ProductCard'
 
-const HeroSection = () => {
+const HeroSection = async () => {
+
+  const allProducts = await getAllProducts();
+
   return (
     <>
     <section className='font-poppins sm:px-16 px-6 py-24 mx-auto max-w-10xl'>
@@ -14,6 +19,14 @@ const HeroSection = () => {
           <SearchBar/>
         </div>
         <HeroCarousel/>
+      </div>
+    </section>
+    <section className='flex flex-col gap-10 px-6 md:px-20 py-24 font-poppins text-Iblack'>
+      <h1 className='text-secondary text-[32px] font-semibold'>Trending</h1>
+      <div className='flex flex-wrap gap-x-8 gap-y-16'>
+        {allProducts?.map((product) => (
+          <ProductCard key={product._id} product={product}/>
+        ))}
       </div>
     </section>
     </>
