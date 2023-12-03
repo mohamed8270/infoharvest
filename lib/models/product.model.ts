@@ -16,10 +16,11 @@ const productSchema = new mongoose.Schema({
     lowestPrice: {type: Number},
     highestPrice: {type: Number},
     averagePrice: {type: Number},
-    discountRate: {type: Number},
+    discoutPercentage: {type: Number},
     description: {type: String},
     category: {type: String},
     reviewsCount: {type: Number},
+    brand: {type: String},
     isOutOfStock: {type: String},
     users: [
         {

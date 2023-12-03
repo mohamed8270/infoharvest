@@ -36,6 +36,7 @@ const similarProducts = await getSimilarProducts(id);
         <div className='flex flex-col flex-1'>
           <div className='flex justify-between items-start gap-5 flex-wrap pb-6'>
             <div className='flex flex-col gap-3'>
+              <p className='text-blue-400 text-[12px]'>{product.brand}</p>
               <p className='text-[28px] font-semibold text-Iblack font-poppins'>{product.title}</p>
               <Link
               href={product.url}
@@ -108,7 +109,7 @@ const similarProducts = await getSimilarProducts(id);
                 </div>
 
                 <p className='text-sm text-Iblack text-opacity-50'>
-                  <span className='text-green-500 font-semibold'>93%</span> of buyers recommented this.
+                  <span className='text-green-500 font-semibold'>{`-${product.discoutPercentage}%`  || '93%'}</span> Deal of the day.
                 </p>
               </div>
             </div>

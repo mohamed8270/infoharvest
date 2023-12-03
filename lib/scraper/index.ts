@@ -57,9 +57,15 @@ export async function scrapeAmazonProduct(url: string) {
         );
 
         const discoutPercentage = $('.savingsPercentage').text().replace(/[-%]/g, "");
+        // console.log(discoutPercentage);
 
         const description = extractDescription($);
 
+        const stars = $('#acrCustomerReviewLink span.a-size-mini .a-color-base').text().trim();
+        console.log(stars);
+
+        const brand = $('#bylineInfo').text().trim();
+        // console.log(brand);
 
         const data = {
             url,
@@ -73,7 +79,8 @@ export async function scrapeAmazonProduct(url: string) {
             discoutPercentage: Number(discoutPercentage),
             category: 'category',
             reviewsCount: 50,
-            stars: 4.5,
+            stars: stars,
+            brand: brand,
             isOutOfStock: outOfStock,
             lowestPrice: Number(currentPrice) || Number(originalPrice),
             highestPrice: Number(originalPrice) || Number(currentPrice),
