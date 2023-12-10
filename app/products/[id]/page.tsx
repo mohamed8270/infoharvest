@@ -44,6 +44,7 @@ const similarProducts = await getSimilarProducts(id);
               className='text-base text-Iblack opacity-50'>
                 Visit Product
               </Link>
+              </div>
               <div className='flex gap-3 items-center'>
                 <div className='flex items-center gap-2 px-3 py-2 bg-[#FFF0F0] rounded-[10px]'>
                   <Image
@@ -142,8 +143,7 @@ const similarProducts = await getSimilarProducts(id);
               </div>
             </div>
 
-            Modal
-          </div>
+            <Modal productId={id}/>
         </div>
       </div>
 

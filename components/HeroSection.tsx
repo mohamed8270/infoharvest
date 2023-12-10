@@ -15,7 +15,7 @@ const HeroSection = async () => {
         <div className='flex flex-col justify-center'>
           <p className='text-Iblack text-[12px]'>Start harvesting your money here ➡️</p>
           <h1 className='text-Iblack text-[50px] font-semibold'>Make a wise decission with <br/><span className='text-Ired text-[50px] font-semibold'>Info Harvest</span> </h1>
-          <p className='text-Iblack text-opacity-50 text-[14px] font-regular'>The powerful tool present in market for the user to make price decission well,<br/>Unlock the potentail of saving money money over every order you make!</p>
+          <p className='text-Iblack text-opacity-50 text-[14px] font-regular'>The powerful tool present in market for the user to make price decission well,<br/>Unlock the potential of saving money over every order you make!</p>
           <SearchBar/>
         </div>
         <HeroCarousel/>
