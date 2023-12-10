@@ -16,12 +16,12 @@ export async function GET() {
 
         connectToDB();
 
-        const prodcuts = await Product.find({});
+        const products = await Product.find({});
 
-        if(!prodcuts) return throw new Error("No products found");
+        if(!products) throw new Error("No products found");
         
         const updatedProducts = await Promise.all(
-            prodcuts.map(async (currentProduct) => {
+            products.map(async (currentProduct) => {
                 const scrapedProduct = await scrapeAmazonProduct(currentProduct.url);
 
                 if(!scrapedProduct) return throw new Error("No product found");

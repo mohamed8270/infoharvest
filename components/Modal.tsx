@@ -2,7 +2,7 @@
 
 import React, {useState, Fragment} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import Image from 'next/Image'
+import Image from 'next/image'
 import {addUserEmailToProduct} from '@/lib/actions'
 
 
