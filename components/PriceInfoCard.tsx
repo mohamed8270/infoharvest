@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 interface Props {
     title: string;
-    value: striong;
+    value: string;
     borderColor: string;
     iconSrc: string;
 }

@@ -162,7 +162,7 @@ const similarProducts = await getSimilarProducts(id);
             src='/assets/icons/bag.svg'
             height={22}
             width={22}
-            allProducts='check'/>
+            alt='check'/>
             <Link className='text-base text-Iwhite' href='/'>
               Buy Now
             </Link>

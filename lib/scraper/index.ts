@@ -1,3 +1,5 @@
+"use server"
+
 import axios from "axios";
 import * as cheerio from "cheerio";
 import {extractPrice, extractCurrency, extractDescription} from '../utils';
@@ -86,6 +88,8 @@ export async function scrapeAmazonProduct(url: string) {
             highestPrice: Number(originalPrice) || Number(currentPrice),
             averagePrice: Number(currentPrice) || Number(originalPrice),
         };
+
+        // console.log(data);
      
         return data;
         // console.log(data);

@@ -13,7 +13,7 @@ const SearchBar = () => {
       if (
           hostname.includes('amazon.com') || 
           hostname.includes('amazon.') ||
-          hostname.endswith('amazon')
+          hostname.endsWith('amazon')
           ) {
             return true;
           }

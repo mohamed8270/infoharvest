@@ -18,12 +18,13 @@ export type PriceHistoryItem = {
     highestPrice: number;
     lowestPrice: number;
     averagePrice: number;
-    discountRate: number;
+    discoutPercentage: number;
     description: string;
     category: string;
     reviewsCount: number;
-    stars: number;
-    isOutOfStock: Boolean;
+    stars: string;
+    brand: string;
+    isOutOfStock: string;
     users?: User[];
   };
   
