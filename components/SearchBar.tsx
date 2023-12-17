@@ -34,6 +34,7 @@ const SearchBar = () => {
     try {
       setIsLoading(true);
       const product = await scrapeAndStoreProduct(SearchPrompt);
+      setSearchPrompt('');
     } catch (error) {
       console.log(error);
     } finally {

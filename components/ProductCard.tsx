@@ -21,13 +21,13 @@ export const ProductCard = ({product}: Props) => {
       </div>
 
       <div className='flex flex-col gap-3'>
-        <h3 className='text-secondary text-xl leading-6 font-semibold truncate'>{product.title}</h3>
-        <div className='flex justify-between'>
-          <p className='text-Iblack opacity-50 text-lg capitalize'>
-            {product.category}
+        <h3 className='text-Iblack text-base leading-6 font-semibold truncate'>{product.title}</h3>
+        <div className='flex justify-between items-center'>
+          <p className='text-Iwhite text-xs capitalize bg-Ired rounded-md p-1'>
+            {product.discoutPercentage == 0 ? 'One day offer!' : `${product.discoutPercentage}% off`}
           </p>
 
-          <p className='text-Iblack text-lg font-semibold'>
+          <p className='text-Iblack text-base font-semibold'>
             <span>{product?.currency}</span>
             <span>{product?.currentPrice}</span>
           </p>

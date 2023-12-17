@@ -23,7 +23,7 @@ const HeroSection = async () => {
     </section>
     <section className='flex flex-col gap-10 px-6 md:px-20 py-24 font-poppins text-Iblack'>
       <h1 className='text-secondary text-[32px] font-semibold'>Trending</h1>
-      <div className='flex flex-wrap gap-x-8 gap-y-16'>
+      <div className='flex flex-wrap gap-x-12 gap-y-16'>
         {allProducts?.map((product) => (
           <ProductCard key={product._id} product={product}/>
         ))}

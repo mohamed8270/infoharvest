@@ -110,7 +110,7 @@ const similarProducts = await getSimilarProducts(id);
                 </div>
 
                 <p className='text-sm text-Iblack text-opacity-50'>
-                  <span className='text-green-500 font-semibold'>{`-${product.discoutPercentage}%`  || '93%'}</span> Deal of the day.
+                  <span className='text-Ired font-semibold'>{`-${product.discoutPercentage}%`  || '93%'}</span> Deal of the day.
                 </p>
               </div>
             </div>
